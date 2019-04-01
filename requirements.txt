@@ -3,4 +3,3 @@ gunicorn
 django-heroku
 nltk
 PyPDF2
-requests
