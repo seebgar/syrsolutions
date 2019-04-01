@@ -78,11 +78,11 @@ def clasificador(file):
     if distribucionTipo1>0:
         resultado.append({'t': 'Firma de contratos', 'info': 'Para la realización de una firma de contrato es necesario el respectivo contrato como evidencia de que de su elaboración.'})
     if distribucionTipo2>0:
-        resultado.append({'t': 'Modificaciones', 'info': 'algo generico'})
+        resultado.append({'t': 'Modificaciones de Contratos', 'info': 'Para llevar acabor la modificación de un contrato es necesario el respectivo contrato con las actas a modificar.'})
     if distribucionTipo3>0:
-        resultado.append({'t': 'Ejecución de Pagos', 'info': 'algo generico'})
+        resultado.append({'t': 'Ejecución de Pagos', 'info': 'Para la ejecución de pago de un contrato es necesario las actas de pago y la factura de dicho contrato.'})
     if distribucionTipo4>0:
-        resultado.append({'t': 'Liquidación - Terminación', 'info': 'algo generico'})         
+        resultado.append({'t': 'Liquidación - Terminación de Contrato', 'info': 'Para iniciar con el proceso de terminación de un contrato, son necesarias las facturas de pago y sus respectivos pagos. '})         
     if os.path.exists("texto.txt"):
         os.remove("texto.txt")  
 
@@ -115,5 +115,8 @@ def index(request):
 
 def info(request):
     return render(request, "info.html")
+
+def como(request):
+    return render(request, "como.html")
 
 
