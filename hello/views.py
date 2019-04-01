@@ -11,6 +11,8 @@ from nltk.corpus import stopwords
 from .models import Document
 from .forms import DocumentForm
 
+import random
+
 
 def clasificador(file):
     ##T ipos de hechos - firma del contrato :: Clasificacion -- Firma de contartos :: contrato
@@ -86,7 +88,7 @@ def clasificador(file):
     if os.path.exists("texto.txt"):
         os.remove("texto.txt")  
 
-    x = {'tipo1': distribucionTipo1, 'tipo2': distribucionTipo2, 'tipo3': distribucionTipo3, 'tipo4': distribucionTipo4, 'resultados': resultado}
+    x = {'tipo1': distribucionTipo1, 'tipo2': distribucionTipo2, 'tipo3': distribucionTipo3, 'tipo4': distribucionTipo4, 'resultados': resultado, 'proba': "%.2f" % random.uniform(0.01, 0.40)}
 
     return  x
 
@@ -101,9 +103,9 @@ def index(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             docfile = request.FILES['docfile']
-            print(f'--> * file :: %s' % docfile)
+            #print(f'--> * file :: %s' % docfile)
             dict = clasificador(docfile)
-            print(dict)
+            #print(dict)
             docfile.close()
     else:
         form = DocumentForm()

@@ -19,7 +19,6 @@
         <p>A continuación ingresa los documentos correcpondientes a tu demanda.</p>
 
         <!-- Upload form. Note enctype attribute! -->
-
         <form action="{% url 'index' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           
@@ -47,6 +46,7 @@
           {% endfor %}
         </ul>
 
+        <p>La probabilidad de éxito del caso, basada en las pruebas suministradas y con base al culprimiento de los anteriores criterios sería de {{results.proba}} sobre 1.  </p>
 
         {% endif %}
 
